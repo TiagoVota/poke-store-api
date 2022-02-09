@@ -1,35 +1,19 @@
-import pg from 'pg'
-
-const { Pool } = pg
+import { MongoClient } from 'mongodb'
 
 
 const {
-	NODE_ENV,
-	DB_HOST,
-	DB_PORT,
-	DB_USER,
-	DB_NAME,
-	DB_PASS,
+	MONGO_URI,
+	MONGO_NAME,
 } = process.env
 
-const prodConfig = {
-	connectionString: process.env.DATABASE_URL,
-	ssl: {
-		rejectUnauthorized: false,
-	}
+const connection = async () => {
+	const mongoClient = new MongoClient(MONGO_URI)
+	await mongoClient.connect()
+	
+	const db = mongoClient.db(MONGO_NAME)
+
+	return { mongoClient, db }
 }
-
-const devConfig = {
-	host: DB_HOST,
-	port: DB_PORT,
-	user: DB_USER,
-	database: DB_NAME,
-	password: DB_PASS
-}
-
-const databaseConfig = (NODE_ENV === 'production') ? prodConfig : devConfig
-
-const connection = new Pool(databaseConfig)
 
 
 export default connection

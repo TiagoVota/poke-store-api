@@ -15,7 +15,6 @@ const authUser = async ({ token }) => {
 }
 
 
-
 export {
 	authUser,
 }

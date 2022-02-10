@@ -22,6 +22,7 @@ const userDocument = {
 
 const productDocument = {
 	name: 'pokémon name',
+	image: 'pokémon image by url',
 	price: 'pokémon price',
 	types_id: [
 		'type id from types, is an ObjectId',

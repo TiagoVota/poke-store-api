@@ -14,14 +14,14 @@ const sessionDocument = {
 }
 
 const userDocument = {
-	name: 'username string',
+	username: 'username string',
 	email: 'user email',
 	password: 'hashed password',
 	image: 'user image by url'
 }
 
 const productDocument = {
-	name: 'pokémon name',
+	pokemon: 'pokémon name',
 	image: 'pokémon image by url',
 	price: 'pokémon price',
 	types_id: [
@@ -31,7 +31,7 @@ const productDocument = {
 }
 
 const typeDocument = {
-	name: 'type name'
+	type: 'type name'
 }
 
 const cartDocument = {

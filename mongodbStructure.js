@@ -21,7 +21,7 @@ const userDocument = {
 }
 
 const productDocument = {
-	number: 'pokemon string number (example: 006)',
+	number: 'pokemon number (example: 6)',
 	pokemon: 'pokémon name',
 	image: 'pokémon image by url',
 	price: 'pokémon price',

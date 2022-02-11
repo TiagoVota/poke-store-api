@@ -13,6 +13,21 @@ const getProducts = async (_, res, next) => {
 }
 
 
+const getProduct = async (req, res, next) => {
+	const { params: { pokeName } } = req
+
+	try {
+		const product = await productService.findProduct({ pokeName })
+		
+		return res.status(200).send(product)
+
+	} catch (error) {		
+		next(error)
+	}
+}
+
+
 export {
 	getProducts,
+	getProduct,
 }

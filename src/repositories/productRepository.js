@@ -11,6 +11,21 @@ const findProducts = async () => {
 }
 
 
+const findProductByAtribute = async ({ key, value }) => {
+	const { mongoClient, db } = await connection()
+
+	const filter = {}
+	filter[key] = value
+
+	const product = await db.collection('products').findOne(filter)
+	await mongoClient.close()
+
+	if (!product) return null
+	return product
+}
+
+
 export {
 	findProducts,
+	findProductByAtribute,
 }

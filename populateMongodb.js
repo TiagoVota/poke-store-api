@@ -1,6 +1,6 @@
 const pokemonsInfo = [
 	{
-		number: '001',
+		number: 1,
 		pokemon: 'Bulbasaur',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png',
 		price: 10,
@@ -10,7 +10,7 @@ const pokemonsInfo = [
 		],
 	},
 	{
-		number: '002',
+		number: 2,
 		pokemon: 'Ivysaur',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/002.png',
 		price: 50,
@@ -20,7 +20,7 @@ const pokemonsInfo = [
 		],
 	},
 	{
-		number: '003',
+		number: 3,
 		pokemon: 'Venusaur',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/003.png',
 		price: 300,
@@ -30,7 +30,7 @@ const pokemonsInfo = [
 		],
 	},
 	{
-		number: '004',
+		number: 4,
 		pokemon: 'Charmander',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png',
 		price: 10,
@@ -39,7 +39,7 @@ const pokemonsInfo = [
 		],
 	},
 	{
-		number: '005',
+		number: 5,
 		pokemon: 'Charmeleon',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/005.png',
 		price: 50,
@@ -48,7 +48,7 @@ const pokemonsInfo = [
 		],
 	},
 	{
-		number: '006',
+		number: 6,
 		pokemon: 'Charizard',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/006.png',
 		price: 300,
@@ -58,7 +58,7 @@ const pokemonsInfo = [
 		],
 	},
 	{
-		number: '007',
+		number: 7,
 		pokemon: 'Squirtle',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png',
 		price: 10,
@@ -67,7 +67,7 @@ const pokemonsInfo = [
 		],
 	},
 	{
-		number: '008',
+		number: 8,
 		pokemon: 'Wartortle',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/008.png',
 		price: 50,
@@ -76,7 +76,7 @@ const pokemonsInfo = [
 		],
 	},
 	{
-		number: '009',
+		number: 9,
 		pokemon: 'Blastoise',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/009.png',
 		price: 300,
@@ -85,7 +85,7 @@ const pokemonsInfo = [
 		],
 	},
 	{
-		number: '025',
+		number: 25,
 		pokemon: 'Pikachu',
 		image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png',
 		price: 100,

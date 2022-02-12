@@ -1,12 +1,13 @@
 import { Router } from 'express'
-
-// import * as authController from '../controllers/authController.js'
+import { validateSignUp } from '../middlewares/signupMiddleware.js'
+import { validateLogin } from '../middlewares/authMiddleware.js'
+import { postSignUp, postLogin } from '../controllers/userController.js'
 
 
 const router = new Router()
 
-// router.post('/login', authController.login)
-// router.post('/sign-up', authController.signUp)
+router.post('/login', validateLogin, postLogin)
+router.post('/sign-up', validateSignUp, postSignUp)
 
 // router.delete('/logout', authController.logout)
 

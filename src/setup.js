@@ -8,6 +8,7 @@ const paths = {
 }
 
 const path = paths[NODE_ENV] || '.env.dev'
+console.log(path)
 
 
 dotenv.config({

@@ -1,5 +1,6 @@
 const errorsName = [
 	'AuthError',
+	'NoFoundPokemonError',
 	'SchemaError',
 ]
 

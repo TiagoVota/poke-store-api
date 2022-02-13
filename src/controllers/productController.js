@@ -14,10 +14,27 @@ const getProducts = async (_, res, next) => {
 
 
 const getProduct = async (req, res, next) => {
-	const { params: { pokeName } } = req
+	const { params: { pokeNameOrId } } = req
 
 	try {
-		const product = await productService.findProduct({ pokeName })
+		const product = await productService.findProduct({ pokeNameOrId })
+		
+		return res.status(200).send(product)
+
+	} catch (error) {		
+		next(error)
+	}
+}
+
+
+const addUserProduct = async (req, res, next) => {
+	const { params: { productId }, body } = req
+	const { locals: { userId } } = res
+	
+	const productInfo = { ...body, productId }
+	
+	try {
+		const product = await productService.addCartProduct({ userId, productInfo })
 		
 		return res.status(200).send(product)
 
@@ -30,4 +47,5 @@ const getProduct = async (req, res, next) => {
 export {
 	getProducts,
 	getProduct,
+	addUserProduct,
 }

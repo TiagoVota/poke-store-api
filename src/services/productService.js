@@ -1,4 +1,8 @@
+import { ObjectId } from 'mongodb'
+
+import * as cartService from './cartService.js'
 import * as productRepository from '../repositories/productRepository.js'
+import * as cartRepository from '../repositories/cartRepository.js'
 import * as productSchema from '../schemas/productSchema.js'
 import * as productHelper from '../helpers/productHelper.js'
 
@@ -15,21 +19,18 @@ const listProducts = async () => {
 }
 
 
-const findProduct = async ({ pokeName }) => {
-	pokeName = productHelper.toCapitalizeCase(pokeName)
+const findProduct = async ({ pokeNameOrId }) => {
+	const { key, value } = productHelper.makeKeyAndValue(pokeNameOrId)
 
 	const nameErrors = validationErrors({ 
-		objectToValid: { pokeName },
+		objectToValid: { pokeNameOrId: value },
 		objectValidation: productSchema.pokeNameSchema
 	})
 
 	if (nameErrors) throw new SchemaError(nameErrors)
 
-	const product = await productRepository.findProductByAtribute({
-		key: 'pokemon',
-		value: pokeName
-	})
-	if (!product) throw new NoFoundPokemonError(pokeName)
+	const product = await productRepository.findProductByAtribute({ key, value })
+	if (!product && key !== '_id') throw new NoFoundPokemonError(value)
 	const { number: pokeNumber } = product
 
 	const adjacentPokemons = await findAdjacentPokemons({ pokeNumber })
@@ -67,7 +68,37 @@ const findAdjacentPokemons = async ({ pokeNumber }) => {
 }
 
 
+const addCartProduct = async ({ userId: user_id, productInfo }) => {
+	productInfo.productId = new ObjectId(productInfo.productId)
+
+	const addProductErrors = validationErrors({ 
+		objectToValid: productInfo,
+		objectValidation: productSchema.postProductSchema
+	})
+	if (addProductErrors) throw new SchemaError(addProductErrors)
+	const { productId, quantity } = productInfo
+
+	const { cartId, products } = await cartService.takeCartInfoByUserId({
+		user_id
+	})
+
+	const newProducts = productHelper.upsertProductList({
+		products,
+		productId,
+		quantity,
+	})
+
+	const cart = await cartRepository.updateCart({
+		cart_id: cartId,
+		products: newProducts
+	})
+
+	return cart
+}
+
+
 export {
 	listProducts,
 	findProduct,
+	addCartProduct,
 }

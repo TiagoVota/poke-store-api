@@ -1,6 +1,7 @@
 import * as sessionService from '../services/sessionService.js'
 
 
+
 const authMiddleware = async (req, res, next) => {
 	const { headers: { authorization } } = req
 	const token = authorization?.replace('Bearer ', '')

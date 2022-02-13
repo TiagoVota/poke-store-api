@@ -10,7 +10,7 @@ const router = new Router()
 router.get('', productController.getProducts)
 router.get('/:pokeName', productController.getProduct)
 
-// router.post('/:productId', authMiddleware, productController.postProduct)
+router.put('/:productId', authMiddleware, productController.addUserProduct)
 
 
 export default router

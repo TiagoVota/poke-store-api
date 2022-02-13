@@ -1,4 +1,8 @@
+import { ObjectId } from 'mongodb'
+
+import * as cartService from './cartService.js'
 import * as productRepository from '../repositories/productRepository.js'
+import * as cartRepository from '../repositories/cartRepository.js'
 import * as productSchema from '../schemas/productSchema.js'
 import * as productHelper from '../helpers/productHelper.js'
 
@@ -67,7 +71,37 @@ const findAdjacentPokemons = async ({ pokeNumber }) => {
 }
 
 
+const addCartProduct = async ({ userId: user_id, productInfo }) => {
+	productInfo.productId = new ObjectId(productInfo.productId)
+
+	const addProductErrors = validationErrors({ 
+		objectToValid: productInfo,
+		objectValidation: productSchema.postProductSchema
+	})
+	if (addProductErrors) throw new SchemaError(addProductErrors)
+	const { productId, quantity } = productInfo
+
+	const { cartId, products } = await cartService.takeCartInfoByUserId({
+		user_id
+	})
+
+	const newProducts = productHelper.upsertProductList({
+		products,
+		productId,
+		quantity,
+	})
+
+	const cart = await cartRepository.updateCart({
+		cart_id: cartId,
+		products: newProducts
+	})
+
+	return cart
+}
+
+
 export {
 	listProducts,
 	findProduct,
+	addCartProduct,
 }

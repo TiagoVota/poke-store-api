@@ -14,10 +14,30 @@ const adjacentPokeNumbers = (pokeNumber) => {
 }
 
 
+const upsertProductList = ({ products, productId, quantity }) => {
+	const newProduct = { product_id: productId, quantity }
+	if (!products[0]) return [newProduct]
+
+	console.log({ inputObject: { productId, type: typeof productId } })
+	
+	const newProducts = [...products]
+	
+	const isProductInCart = newProducts.find((product, index) => {
+		const isEqualId = Boolean(product.product_id.equals(productId))
+		if (isEqualId) newProducts[index] = { ...product, quantity }
+
+		return isEqualId
+	})
+
+	if (!isProductInCart) newProducts.push(newProduct)
+
+	return newProducts
+}
 
 
 export {
 	toCapitalizeCase,
 	adjacentPokeNumbers,
+	upsertProductList,
 }
 

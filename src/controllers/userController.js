@@ -31,7 +31,7 @@ const postLogin = async(req, res) => {
         if (bcrypt.compareSync(req.body.password, user.password)) {
             const token = uuid()
             await db.collection('sessions').insertOne({ user_id: user._id, token })
-            return res.status(200).send(token)
+            return res.status(200).send({username: user.username, image: user.image, token})
         }
         else{
             res.sendStatus(401)

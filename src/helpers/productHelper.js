@@ -1,5 +1,17 @@
+import { ObjectId } from 'mongodb'
+
 import maxPokeNumber from '../utils/pokeNumber.js'
 
+
+const makeKeyAndValue = (pokeNameOrId) => {
+	const isIdString = Boolean(pokeNameOrId.length === 24)
+
+	const [ key, value ] = isIdString
+		? ['_id', new ObjectId(pokeNameOrId)]
+		: ['pokemon', toCapitalizeCase(pokeNameOrId)]
+
+	return { key, value }
+}
 
 const toCapitalizeCase = (str) => {
 	return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase()
@@ -18,8 +30,6 @@ const upsertProductList = ({ products, productId, quantity }) => {
 	const newProduct = { product_id: productId, quantity }
 	if (!products[0]) return [newProduct]
 
-	console.log({ inputObject: { productId, type: typeof productId } })
-	
 	const newProducts = [...products]
 	
 	const isProductInCart = newProducts.find((product, index) => {
@@ -36,7 +46,7 @@ const upsertProductList = ({ products, productId, quantity }) => {
 
 
 export {
-	toCapitalizeCase,
+	makeKeyAndValue,
 	adjacentPokeNumbers,
 	upsertProductList,
 }

@@ -19,21 +19,18 @@ const listProducts = async () => {
 }
 
 
-const findProduct = async ({ pokeName }) => {
-	pokeName = productHelper.toCapitalizeCase(pokeName)
+const findProduct = async ({ pokeNameOrId }) => {
+	const { key, value } = productHelper.makeKeyAndValue(pokeNameOrId)
 
 	const nameErrors = validationErrors({ 
-		objectToValid: { pokeName },
+		objectToValid: { pokeNameOrId: value },
 		objectValidation: productSchema.pokeNameSchema
 	})
 
 	if (nameErrors) throw new SchemaError(nameErrors)
 
-	const product = await productRepository.findProductByAtribute({
-		key: 'pokemon',
-		value: pokeName
-	})
-	if (!product) throw new NoFoundPokemonError(pokeName)
+	const product = await productRepository.findProductByAtribute({ key, value })
+	if (!product && key !== '_id') throw new NoFoundPokemonError(value)
 	const { number: pokeNumber } = product
 
 	const adjacentPokemons = await findAdjacentPokemons({ pokeNumber })

@@ -8,7 +8,7 @@ import authMiddleware from '../middlewares/authMiddleware.js'
 const router = new Router()
 
 router.get('', productController.getProducts)
-router.get('/:pokeName', productController.getProduct)
+router.get('/:pokeNameOrId', productController.getProduct)
 
 router.put('/:productId', authMiddleware, productController.addUserProduct)
 

@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { validateSignUp } from '../middlewares/signupMiddleware.js'
-import { validateLogin } from '../middlewares/authMiddleware.js'
+import validateLogin from '../middlewares/loginMiddleware.js'
 import { postSignUp, postLogin } from '../controllers/userController.js'
 
 

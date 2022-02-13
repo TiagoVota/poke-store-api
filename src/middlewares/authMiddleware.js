@@ -1,5 +1,5 @@
 import * as sessionService from '../services/sessionService.js'
-import { loginSchema } from '../schemas/authSchema.js'
+
 
 
 const authMiddleware = async (req, res, next) => {
@@ -18,13 +18,5 @@ const authMiddleware = async (req, res, next) => {
 	}
 }
 
-const validateLogin = async (req, res, next) => {
-	const validation = loginSchema.validate(req.body)
-	if(validation.error){
-		return res.sendStatus(422)
-	}
-	next()
-}
 
-
-export { authMiddleware, validateLogin }
+export default authMiddleware

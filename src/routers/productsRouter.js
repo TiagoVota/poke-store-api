@@ -2,7 +2,7 @@ import { Router } from 'express'
 
 import * as productController from '../controllers/productController.js'
 
-import { authMiddleware } from '../middlewares/authMiddleware.js'
+import authMiddleware from '../middlewares/authMiddleware.js'
 
 
 const router = new Router()

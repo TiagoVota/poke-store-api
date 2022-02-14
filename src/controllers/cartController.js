@@ -6,6 +6,9 @@ const getProductsInCart = async (req, res, next) => {
 	try{
 		const { mongoClient, db } = await connection()
 		const userCart = await db.collection('carts').find( { user_id: res.locals.userId } ).toArray()
+		if(userCart.length < 1){
+			return res.sendStatus(404)
+		}
 		let arrayOfIds = []
 		for(let i = 0; i < userCart[0].products.length; i++){
 			arrayOfIds.push(userCart[0].products[i].product_id)

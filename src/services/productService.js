@@ -93,7 +93,7 @@ const addCartProduct = async ({ userId: user_id, productInfo }) => {
 		products: newProducts
 	})
 
-	return cart
+	return { ...cart, cartId }
 }
 
 

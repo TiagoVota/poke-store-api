@@ -104,3 +104,9 @@ const types = [
 	'Water',
 	'Electric'
 ]
+
+
+export {
+	pokemonsInfo,
+	types,
+}

@@ -9,9 +9,9 @@ const authUser = async ({ token }) => {
 	const session = await sessionRepository.findSessionByToken({ token })
 
 	if (!session) throw new AuthError()
-	const { userId } = session
+	const { user_id } = session
 
-	return userId
+	return user_id
 }
 
 

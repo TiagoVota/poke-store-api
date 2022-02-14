@@ -9,6 +9,7 @@
     "start:dev": "node ./src/server.js",
     "start:watch": "npx nodemon ./src/server.js",
     "start:prod": "NODE_ENV=production node ./src/server.js",
+    "kill-port": "npx kill-port 4242",
 		"seed": "node ./src/seedDB.js",
     "deploy": "git push heroku main",
     "logs": "heroku logs --tail"

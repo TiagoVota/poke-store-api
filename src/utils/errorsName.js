@@ -1,6 +1,8 @@
 const errorsName = [
 	'AuthError',
+	'NoCartError',
 	'NoFoundPokemonError',
+	'NoProductsError',
 	'SchemaError',
 ]
 

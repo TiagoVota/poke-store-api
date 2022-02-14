@@ -1,16 +1,17 @@
+import '../setup.js'
 import { MongoClient } from 'mongodb'
 
 
 const {
 	MONGO_URI,
 	MONGO_NAME,
-} = process.env //nao esta lendo env
+} = process.env
 
 const connection = async () => {
 	const mongoClient = new MongoClient(MONGO_URI)
 	await mongoClient.connect()
 	
-	const db = mongoClient.db('poke_store')
+	const db = mongoClient.db(MONGO_NAME)
 
 	return { mongoClient, db }
 }

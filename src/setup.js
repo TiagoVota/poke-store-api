@@ -9,6 +9,7 @@ const paths = {
 
 const path = paths[NODE_ENV] || '.env.dev'
 
+
 dotenv.config({
 	path
 })

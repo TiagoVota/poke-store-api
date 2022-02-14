@@ -26,7 +26,20 @@ const findProductByAtribute = async ({ key, value }) => {
 }
 
 
+const findManyProductsById = async ({ productsIds }) => {
+	const { mongoClient, db } = await connection()
+
+	const filter = { _id: { $in: productsIds } }
+
+	const products = await db.collection('products').find(filter).toArray()
+	await mongoClient.close()
+
+	return products
+}
+
+
 export {
 	findProducts,
 	findProductByAtribute,
+	findManyProductsById,
 }

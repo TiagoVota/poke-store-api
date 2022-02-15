@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 import connection from '../database/database.js'
-import {v4 as uuid} from 'uuid'
+import jwt from 'jsonwebtoken'
 
 const postSignUp = async(req, res) => {
 	try{
@@ -29,9 +29,11 @@ const postLogin = async(req, res) => {
 			return
 		}
 		if (bcrypt.compareSync(req.body.password, user.password)) {
-			const token = uuid()
-			await db.collection('sessions').insertOne({ user_id: user._id, token })
-			return res.status(200).send({username: user.username, image: user.image, token})
+			const userData = { username: user.username, email: user.email }
+			const secretKey = process.env.JWT_SECRET
+			const finalData = jwt.sign(userData, secretKey)
+			await db.collection('sessions').insertOne({ user_id: user._id, finalData })
+			return res.status(200).send({username: user.username, image: user.image, finalData})
 		}
 		else{
 			res.sendStatus(401)

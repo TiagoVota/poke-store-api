@@ -7,11 +7,11 @@ const postSignUp = async(req, res) => {
 		const find = req.body.email
 		const { db } = await connection()
 		const existingUser = await db.collection('users').findOne( {email: find} )
-		console.log(existingUser)
 		if(existingUser){
-			return res.sendStatus(409)
+			return res.status(409).send('Conflict: e-mail already registered!')
 		}
-		const hashedPassword = bcrypt.hashSync(req.body.password, process.env.MAGIC_HASH_NUMBER) //nao ta lendo env
+		const salt = Number(process.env.MAGIC_HASH_NUMBER)
+		const hashedPassword = bcrypt.hashSync(req.body.password, salt)
 		await db.collection('users').insertOne({... req.body, password: hashedPassword})
 		res.sendStatus(201)
 	}catch(e){
@@ -25,8 +25,7 @@ const postLogin = async(req, res) => {
 		const { db } = await connection()
 		const user = await db.collection('users').findOne({email: req.body.email})
 		if(!user){
-			res.sendStatus(404)
-			return
+			return res.status(404).send('User not found!')
 		}
 		if (bcrypt.compareSync(req.body.password, user.password)) {
 			const userData = { username: user.username, email: user.email }

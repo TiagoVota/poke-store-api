@@ -61,5 +61,5 @@ const checkoutDocument = {
 			quantity: 'number of products'
 		}
 	],
-	date: 'finalize order date in timestamp'
+	finalize_date: 'finalize order date in timestamp'
 }

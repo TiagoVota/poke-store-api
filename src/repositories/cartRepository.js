@@ -48,10 +48,19 @@ const updateCart = async ({ cart_id, products }) => {
 }
 
 
+const deleteCartByUserId = async ({ user_id }) => {
+	const { mongoClient, db } = await connection()
+
+	const cartDelete = await db.collection('carts').deleteOne({ user_id })
+	await mongoClient.close()
+
+	return cartDelete
+}
 
 
 export {
 	findCartByUserId,
 	insertUserCart,
 	updateCart,
+	deleteCartByUserId,
 }

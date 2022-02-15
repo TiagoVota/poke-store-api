@@ -7,19 +7,18 @@ const authUser = async ({ token }) => {
 
 	try{
 		const secretKey = process.env.JWT_SECRET
-		const id = jwt.verify( token, secretKey )
-		console.log(id)
+		const sessionId = jwt.verify( token, secretKey )
+		const session = await sessionRepository.findSessionById(sessionId.id)
+		if (!session) throw new AuthError()
+		const { user_id } = session
+	
+		return user_id
 	}catch(e){
 		throw new AuthError(`'${token}' has invalid token syntax!`)
 	}
 
 
-	const session = await sessionRepository.findSessionByToken({ token })
 
-	if (!session) throw new AuthError()
-	const { user_id } = session
-
-	return user_id
 }
 
 

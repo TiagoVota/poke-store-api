@@ -2,10 +2,10 @@ import connection from '../database/database.js'
 import { ObjectId } from 'mongodb'
 
 
-const findSessionByToken = async ({ token }) => {
+const findSessionById = async (pureId) => {
 	const { mongoClient, db } = await connection()
 
-	const session = await db.collection('sessions').findOne({ _id: new ObjectId(token) })
+	const session = await db.collection('sessions').findOne({ _id: new ObjectId(pureId) })
 	mongoClient.close()
 	
 	if (!session) return null
@@ -14,5 +14,5 @@ const findSessionByToken = async ({ token }) => {
 
 
 export {
-	findSessionByToken,
+	findSessionById,
 }

@@ -28,11 +28,12 @@ const postLogin = async(req, res) => {
 			return res.status(404).send('User not found!')
 		}
 		if (bcrypt.compareSync(req.body.password, user.password)) {
-			const userData = { username: user.username, email: user.email }
+			await db.collection('sessions').insertOne({ email:user.email })
+			const sessionCreated = await db.collection('sessions').findOne({ email:user.email })
+			const sessionCreatedId = { id:sessionCreated._id }
 			const secretKey = process.env.JWT_SECRET
-			const finalData = jwt.sign(userData, secretKey)
-			await db.collection('sessions').insertOne({ user_id: user._id, finalData })
-			return res.status(200).send({username: user.username, image: user.image, finalData})
+			const token = jwt.sign(sessionCreatedId, secretKey)
+			return res.status(200).send({username: user.username, image: user.image, token})
 		}
 		else{
 			res.sendStatus(401)

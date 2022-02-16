@@ -41,4 +41,14 @@ const postLogin = async(req, res) => {
 	}
 }
 
-export { postSignUp, postLogin }
+const findUserEmailByUserId = async(id) => {
+	try{
+		const { db } = await connection()
+		const user = await db.collection('users').findOne({ _id:id })
+		return user.email
+	}catch(e){
+		console.log(e)
+	}
+}
+
+export { postSignUp, postLogin, findUserEmailByUserId }

@@ -9,8 +9,7 @@ const collections = [
 
 
 const sessionDocument = {
-	user_id: 'this is an ObjectId from user',
-	token: 'this is an uuid token'
+	email: 'user email'
 }
 
 const userDocument = {

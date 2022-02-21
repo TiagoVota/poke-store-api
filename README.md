@@ -1,12 +1,12 @@
 # 🐉 Poke Store API
 ## 🚀 Descrição do Projeto
-Quem não lembra dos bons e velhos tempos jogando ou assistindo Poikémon, não é mesmo? Então que tal matar essa saudade com a Poke Store?!?! Com ela você poderá comprar seus Pokémons prediletos para ter como companhia!!!
+Quem não lembra dos bons e velhos tempos jogando ou assistindo Pokémon, não é mesmo? Então que tal matar essa saudade com a Poke Store?!?! Com ela você poderá comprar seus Pokémons prediletos para ter como companhia!!!
 
 <br/>
 
 
 ## 🔍 Sobre
-Na Poke Store API você será capaz de selecionar seus Pokémons prediletos para te fazer companhia. Desde vizualizar seu amiguinho até finalizar sua compra! Fácil, não é mesmo? Nesse API voltada para um e-commerce, podemos encontrar as seguintes funcionalidades:
+Na Poke Store API você será capaz de selecionar seus Pokémons prediletos para te fazer companhia. Desde visualizar seu amiguinho até finalizar sua compra! Fácil, não é mesmo? Nesse API voltada para um e-commerce, podemos encontrar as seguintes funcionalidades:
 
 ### Features
 - [x] [`Verificar se o server está funcionando`](#get-health)
@@ -30,6 +30,7 @@ Na Poke Store API você será capaz de selecionar seus Pokémons prediletos para
 	- [✔️ Tabela de conteúdo](#️-tabela-de-conteúdo)
 	- [🖥 Tecnologias](#-tecnologias)
 	- [⚙ Como usar](#-como-usar)
+		- [Instalando o app](#instalando-o-app)
 		- [Instalando a API](#instalando-a-api)
 		- [Iniciando o servidor](#iniciando-o-servidor)
 		- [Populando banco de dados](#populando-banco-de-dados)
@@ -68,6 +69,9 @@ Para utilizar essa API, será necessário ter nas suas máquina as seguintes fer
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e [MongoDB](https://www.mongodb.com/).
 Além disso recomendo fortemente a utilização de um bom ter um editor de código, como o [VSCode](https://code.visualstudio.com/)!
 
+
+### Instalando o app
+Seguir os passos descritos na seção de [instalação do app](https://github.com/TiagoVota/poke-store/blob/main/README.md).
 
 ### Instalando a API
 ```bash
@@ -148,7 +152,7 @@ Agora veremos quais os principais end points dessa aplicação
 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/56308226?v=4" width="100px;" alt="Foto de perfil Tiago Vota Cucco"/>
 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/78576546?v=4" width="100px;" alt="Foto de perfil Felipe Ventura"/>
 
-Feito por Tiago Vota Cucco e Felipe Ventura. Entre em contato conesco!
+Feito por Tiago Vota Cucco e Felipe Ventura. Entre em contato conosco!
 
 [![Gmail Badge](https://img.shields.io/badge/-tiagovotacucco@gmail.com-c14438?style=flat&logo=Gmail&logoColor=white&link=mailto:tiagovotacucco@gmail.com)](mailto:tiagovotacucco@gmail.com)
 [![Linkedin Badge](https://img.shields.io/badge/-Tiago-Vota?style=flat&logo=Linkedin&logoColor=white&color=blue&link=https://www.linkedin.com/in/tiago-vota-cucco-394916204)](https://www.linkedin.com/in/tiago-vota-cucco-394916204) 

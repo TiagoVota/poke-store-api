@@ -6,7 +6,7 @@ Quem não lembra dos bons e velhos tempos jogando ou assistindo Pokémon, não �
 
 
 ## 🔍 Sobre
-Na Poke Store API você será capaz de selecionar seus Pokémons prediletos para te fazer companhia. Desde visualizar seu amiguinho até finalizar sua compra! Fácil, não é mesmo? Nesse API voltada para um e-commerce, podemos encontrar as seguintes funcionalidades:
+Na Poke Store API você será capaz de selecionar seus Pokémons prediletos para te fazer companhia. Desde visualizar seu amiguinho até finalizar sua compra! Fácil, não é mesmo? Nessa API voltada para um e-commerce, podemos encontrar as seguintes funcionalidades:
 
 ### Features
 - [x] [`Verificar se o server está funcionando`](#get-health)
@@ -65,7 +65,7 @@ Na Poke Store API você será capaz de selecionar seus Pokémons prediletos para
 
 ## ⚙ Como usar
 
-Para utilizar essa API, será necessário ter nas suas máquina as seguintes ferramentas:
+Para utilizar essa API, será necessário ter na sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e [MongoDB](https://www.mongodb.com/).
 Além disso recomendo fortemente a utilização de um bom ter um editor de código, como o [VSCode](https://code.visualstudio.com/)!
 
@@ -118,7 +118,7 @@ Na pasta principal da API, crie um arquivo `.env.dev` aos mesmos moldes do arqui
 # Execute a aplicação em modo de desenvolvimento
 npm run start:dev
 
-# O servidor inciará na porta:PORT (escolhida no arquivo .env) - acesse http://localhost:PORT 
+# O servidor iniciará na porta:PORT (escolhida no arquivo .env) - acesse http://localhost:PORT 
 
 ```
 
@@ -126,7 +126,7 @@ npm run start:dev
 
 
 ## 📜 Documentação
-Agora veremos quais os principais end points dessa aplicação
+Agora veremos quais os principais endpoints dessa aplicação
 
 ### `GET /health`
 
@@ -155,6 +155,6 @@ Agora veremos quais os principais end points dessa aplicação
 Feito por Tiago Vota Cucco e Felipe Ventura. Entre em contato conosco!
 
 [![Gmail Badge](https://img.shields.io/badge/-tiagovotacucco@gmail.com-c14438?style=flat&logo=Gmail&logoColor=white&link=mailto:tiagovotacucco@gmail.com)](mailto:tiagovotacucco@gmail.com)
-[![Linkedin Badge](https://img.shields.io/badge/-Tiago-Vota?style=flat&logo=Linkedin&logoColor=white&color=blue&link=https://www.linkedin.com/in/tiago-vota-cucco-394916204)](https://www.linkedin.com/in/tiago-vota-cucco-394916204) 
+[![Linkedin Badge](https://img.shields.io/badge/-Tiago-Vota?style=flat&logo=Linkedin&logoColor=white&color=blue&link=https://www.linkedin.com/in/tiago-vota-cucco)](https://www.linkedin.com/in/tiago-vota-cucco) 
 
 <br/><br/>

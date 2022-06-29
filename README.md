@@ -53,7 +53,7 @@ Na Poke Store API você será capaz de selecionar seus Pokémons prediletos para
 
 ## 🖥 Tecnologias
 <p align="center">
-	<img alt="mongodb" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/>
+  <img alt="mongodb" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/>
   <img alt="nodejs" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
   <img alt="npm" src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/>
   <img alt="expressjs" src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"/>
@@ -77,13 +77,13 @@ Seguir os passos descritos na seção de [instalação do app](https://github.co
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/TiagoVota/poke-store-api
+git clone https://github.com/TiagoVota/poke-store-api
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd poke-store-api
+cd poke-store-api
 
 # Instale as dependências
-$ npm install
+npm install
 
 ```
 
@@ -116,7 +116,7 @@ Na pasta principal da API, crie um arquivo `.env.dev` aos mesmos moldes do arqui
 ```bash
 
 # Execute a aplicação em modo de desenvolvimento
-$ npm run start:dev
+npm run start:dev
 
 # O servidor inciará na porta:PORT (escolhida no arquivo .env) - acesse http://localhost:PORT 
 
